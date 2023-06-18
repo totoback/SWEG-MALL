@@ -282,6 +282,7 @@ a {
 
 .contents4 {
   text-align: center;
+  margin-bottom: 200px;
   .title {
     margin-bottom: 40px;
     font-size: 24px;
@@ -293,16 +294,20 @@ a {
     .right {
       width: 50%;
     }
-    .left{
-      .hot-item{
-        height: 500px;
+    .left {
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fbfbfb;
+      .hot-item {
         text-align: center;
-        span{
+        span {
           display: block;
         }
       }
     }
-    .flex-box{
+    .flex-box {
       display: flex;
     }
     .hot-item {
