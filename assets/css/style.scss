@@ -75,24 +75,24 @@ a {
         margin-right: 20px;
         &:hover {
           border-bottom: 2px solid black;
-          padding-bottom: 6px;
+          padding-bottom: 10px;
           .nav-item-contents {
             display: block;
           }
         }
         .nav-item-contents {
-          position: relative;
-          top: 0;
+          position: absolute;
+          top: 138px;
           left: 0;
           display: none;
           .nav-item-menu {
+            background: #fff;
             padding: 20px 0;
             width: 100vw;
-            position: absolute;
           }
-          .inner {
+          .container {
             li {
-              display: inline-block;
+              display: inline-block !important;
               margin-right: 16px;
               font-size: 14px;
               color: #555;
@@ -182,7 +182,7 @@ a {
   }
   .item-box-wrap {
     display: flex;
-    height: 300px;
+    height: 255px;
     box-sizing: border-box;
   }
   .box-wrap1 {
@@ -199,6 +199,7 @@ a {
   .box-wrap2 {
     img {
       width: 100%;
+      height: 100%;
     }
     .item-box:nth-child(1) {
       width: 33%;
@@ -269,8 +270,40 @@ a {
       span {
         margin-top: 24px;
         display: inline-block;
-        color: #888;
-        font-size: 13px;
+        color: #999;
+        font-size: 12px;
+      }
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.contents4 {
+  text-align: center;
+  .title {
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .hot-wrap {
+    display: flex;
+    .left,
+    .right {
+      width: 50%;
+    }
+    .flex-box{
+      display: flex;
+    }
+    .hot-item {
+      background-color: #fbfbfb;
+      padding: 40px;
+      span {
+        margin-top: 24px;
+        display: inline-block;
+        color: #999;
+        font-size: 12px;
       }
       p {
         margin-top: 10px;
