@@ -294,6 +294,13 @@ a {
 .contents4 .hot-wrap .right {
   width: 50%;
 }
+.contents4 .hot-wrap .left .hot-item {
+  height: 500px;
+  text-align: center;
+}
+.contents4 .hot-wrap .left .hot-item span {
+  display: block;
+}
 .contents4 .hot-wrap .flex-box {
   display: flex;
 }

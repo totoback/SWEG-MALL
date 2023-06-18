@@ -293,6 +293,15 @@ a {
     .right {
       width: 50%;
     }
+    .left{
+      .hot-item{
+        height: 500px;
+        text-align: center;
+        span{
+          display: block;
+        }
+      }
+    }
     .flex-box{
       display: flex;
     }
