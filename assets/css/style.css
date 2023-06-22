@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 body {
   font-family: "Montserrat", sans-serif;
@@ -339,14 +338,64 @@ a {
   font-size: 40px;
   font-weight: 300;
 }
-.list-wrap .all-list li {
-  width: 33.333%;
+.list-wrap .filter_contents .graph {
+  display: flex;
 }
-.list-wrap .all-list .list-box .img-box {
-  background-color: #fff;
-  height: 200px;
-  padding: 40px;
-  background-image: url(../img/list/FAB28-크림.png);
-  background-position: center;
-  background-size: cover;
+.list-wrap .product_item_list {
+  margin-bottom: 100px;
+}
+.list-wrap .product_item_list .btn_set {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+.list-wrap .product_item_list .btn_set a {
+  font-size: 14px;
+  padding: 15px 80px;
+  border: 1px solid #000;
+  transition: all 0.3s ease-in-out;
+}
+.list-wrap .product_item_list .product_item {
+  display: inline-block;
+  position: relative;
+  width: 30%;
+  margin: 80px 12px 0 12px;
+}
+.list-wrap .product_item_list .product_item .image_area img {
+  width: 100%;
+}
+.list-wrap .product_item_list .product_item .image_area .icon_compare {
+  font-size: 12px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #555;
+}
+.list-wrap .product_item_list .product_item .info_area {
+  margin-top: 20px;
+}
+.list-wrap .product_item_list .product_item .info_area .pro_name {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.list-wrap .product_item_list .product_item .info_area .model_name {
+  color: #999;
+  margin-top: 5px;
+  font-size: 14px;
+  letter-spacing: -0.02rem;
+  margin-bottom: 16px;
+}
+.list-wrap .product_item_list .product_item .price_area .price_base {
+  margin-right: 10px;
+  font-size: 13px;
+  display: inline-block;
+  letter-spacing: -0.01rem;
+  color: #707070;
+  text-decoration: line-through;
+}
+.list-wrap .product_item_list .product_item .price_area .price_sale {
+  display: inline-block;
+  padding-right: 30px;
+  font-size: 16px;
+  color: #000000;
 }
