@@ -105,18 +105,46 @@
   </div>
   <!-- menu -->
   <hr class="line">
-  <div class="main">
-    <div class="login-banner">
-      로그인 창
-      <div class="login-input-id">
-        ID : <input type="text">
+  <div class="login_area">
+
+    <div class="login_form_area">
+      <!-- login top -->
+      <div class="login_form_top">
+        로그인 창
+        <h1>
+          반갑습니다.
+          <br>
+          스웨그 고객님! 로그인하세요.
+        </h1>
+
+        <!-- input & button 추후 form 태그 감싸야 함 -->
+        <div class="login_form_wrap">
+          <div class="login_input">
+            <span class="material-symbols-outlined">
+              person
+              </span>
+            <input type="text" placeholder="아이디 입력" class="form_text">
+          </div>
+          <div class="login_input">
+            <span class="material-symbols-outlined">
+              lock_open
+              </span>
+            <input type="text" placeholder="비밀번호 입력" class="form_text">
+          </div>
+          <div class="login_button">
+            <button>로그인</button>
+          </div>
+        </div>
+
       </div>
-      <div class="login-input-pw">
-        PW : <input type="text">
+
+      <!-- login bottom -->
+      <div class="login_form_bottom">
+
       </div>
-      <button> 로그인 </button>
     </div>
-    <div class="store-info">
+
+    <div class="notice_area">
       정보
     </div>
   </div>
