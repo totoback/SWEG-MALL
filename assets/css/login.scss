@@ -19,12 +19,18 @@ a {
 //아이콘
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  opacity: 0.5;
 }
 .line {
   opacity: 0.5;
   margin-bottom: 0;
 }
-
+.form_text{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
 
 //nav
 .nav-wrap {
@@ -114,15 +120,33 @@ a {
   }
 }
 
-.main{
+.login_area{
   display: flex;
   width: auto;
   height: 800px;
-  .login-banner{
+  .login_form_area{
     width: 50%;
     text-align: center;
+    .login_form_top{
+        .login_form_wrap{
+          .login_input{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding: 5px, 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #DFDFDF;
+          }
+          .login_button{
+
+          }
+        }
+    }
+    .login_form_bottom{
+
+    }
   }
-  .store-info{
+  .notice_area{
     width: 50%;
     color : white;
     text-align: center;
