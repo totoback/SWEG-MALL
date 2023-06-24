@@ -333,6 +333,83 @@ a {
   background-position: center;
 }
 
+.breadcrumbs {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 67px;
+  background-color: #1c1c1c;
+  z-index: 11;
+}
+.breadcrumbs .bar_area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 67px;
+  margin: 0 auto;
+}
+.breadcrumbs .bar_area .compare_area a {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #ffffff;
+}
+.breadcrumbs .bar_area .compare_area a img {
+  margin-right: 8px;
+  width: 15px;
+  height: auto;
+}
+.breadcrumbs .bar_area .compare_area a .compare_text {
+  font-size: 14px;
+  font-weight: 400;
+}
+.breadcrumbs .bar_area .compare_area a .compare_text .compare_count {
+  color: red;
+  font-weight: 500;
+}
+.breadcrumbs .bar_area .location {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.breadcrumbs .bar_area .location .loc_item {
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs .bar_area .location .loc_item .form_row_content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 140px);
+  min-height: 40px;
+}
+.breadcrumbs .bar_area .location .loc_item .form_row_content .form_text {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
+.breadcrumbs .bar_area .location .loc_item .breadcrumb_select .form_text {
+  width: initial;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid #666666;
+}
+.breadcrumbs .compare_item_area {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 239px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  z-index: 1;
+}
+
 .list-title {
   margin-top: 80px;
   font-size: 40px;
@@ -426,51 +503,51 @@ a {
   cursor: pointer;
 }
 
-.list-wrap .product_item_list {
+.product_list-wrap .product_item_list {
   margin-bottom: 100px;
 }
-.list-wrap .product_item_list .btn_set {
+.product_list-wrap .product_item_list .btn_set {
   margin-top: 70px;
   display: flex;
   justify-content: center;
 }
-.list-wrap .product_item_list .btn_set a {
+.product_list-wrap .product_item_list .btn_set a {
   font-size: 14px;
   padding: 15px 80px;
   border: 1px solid #000;
   transition: all 0.3s ease-in-out;
 }
-.list-wrap .product_item_list .product_item {
+.product_list-wrap .product_item_list .product_item {
   display: inline-block;
   position: relative;
   width: 30%;
   margin: 80px 12px 0 12px;
 }
-.list-wrap .product_item_list .product_item .image_area img {
+.product_list-wrap .product_item_list .product_item .image_area img {
   width: 100%;
 }
-.list-wrap .product_item_list .product_item .image_area .icon_compare {
+.product_list-wrap .product_item_list .product_item .image_area .icon_compare {
   font-size: 12px;
   position: absolute;
   top: 10px;
   right: 10px;
   color: #555;
 }
-.list-wrap .product_item_list .product_item .info_area {
+.product_list-wrap .product_item_list .product_item .info_area {
   margin-top: 20px;
 }
-.list-wrap .product_item_list .product_item .info_area .pro_name {
+.product_list-wrap .product_item_list .product_item .info_area .pro_name {
   font-size: 20px;
   margin-bottom: 12px;
 }
-.list-wrap .product_item_list .product_item .info_area .model_name {
+.product_list-wrap .product_item_list .product_item .info_area .model_name {
   color: #999;
   margin-top: 5px;
   font-size: 14px;
   letter-spacing: -0.02rem;
   margin-bottom: 16px;
 }
-.list-wrap .product_item_list .product_item .price_area .price_base {
+.product_list-wrap .product_item_list .product_item .price_area .price_base {
   margin-right: 10px;
   font-size: 13px;
   display: inline-block;
@@ -478,7 +555,7 @@ a {
   color: #707070;
   text-decoration: line-through;
 }
-.list-wrap .product_item_list .product_item .price_area .price_sale {
+.product_list-wrap .product_item_list .product_item .price_area .price_sale {
   display: inline-block;
   padding-right: 30px;
   font-size: 16px;
