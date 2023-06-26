@@ -111,14 +111,15 @@
       <!-- login top -->
       <div class="login_form_top">
         로그인 창
-        <h1>
-          반갑습니다.
-          <br>
-          스웨그 고객님! 로그인하세요.
-        </h1>
+        
 
         <!-- input & button 추후 form 태그 감싸야 함 -->
         <div class="login_form_wrap">
+          <h1>
+            반갑습니다.
+            <br>
+            스웨그 고객님! 로그인하세요.
+          </h1>
           <div class="login_input">
             <span class="material-symbols-outlined">
               person
@@ -132,7 +133,18 @@
             <input type="text" placeholder="비밀번호 입력" class="form_text">
           </div>
           <div class="login_button">
-            <button>로그인</button>
+            <a href="#none">로그인</a>
+          </div>
+          <div class="login_form_func">
+            <div class="login_form_func_save">
+              <input id="logincheck" type="checkbox">
+              <label for="logincheck">아이디 저장</label>
+            </div>
+            <div class="login_form_func_find">
+              <a href="#">아이디 찾기</a>
+              <span> | </span>
+              <a href="#">비밀번호 찾기</a>
+            </div>
           </div>
         </div>
 
