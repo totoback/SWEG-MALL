@@ -114,10 +114,7 @@ let product = {
 
 const comparisonBtn = document.querySelector(".compare_area");
 const bottomBox = document.querySelector(".compare_item_area");
-const comparisonSubBtn = document.querySelectorAll(".icon_compare");
 const productList = document.querySelector(".product_item_list");
-
-console.log(comparisonSubBtn)
 
 function comparison() {
   if (comparisonBtn) {
@@ -160,3 +157,16 @@ function productView(products) {
 }
 
 productView(product.refrigerator);
+
+
+//비교하기 버튼 기능
+let comparisonBox = [];
+
+const comparisonSubBtn = document.querySelectorAll(".icon_compare");
+const comparisonItemBox = document.querySelector(".compare_item_area .item_box");
+
+comparisonSubBtn.forEach(function (btn, index) {
+  btn.addEventListener("click", function (e) {
+
+  });
+});
