@@ -167,6 +167,22 @@ const comparisonItemBox = document.querySelector(".compare_item_area .item_box")
 
 comparisonSubBtn.forEach(function (btn, index) {
   btn.addEventListener("click", function (e) {
+    // comparisonBox.push(product[info])
+    const selectedProduct = product.refrigerator[index]
+    console.log(selectedProduct)
 
+    const itemBoxHTML = `<div class="item_box">
+                        <img src=${selectedProduct.img} alt="" />
+                        <div class="item_info">
+                          <div class="item_name">${selectedProduct.name}</div>
+                          <div class="item_model">${selectedProduct.model}</div>
+                          <div class="item_price">${selectedProduct.price}</div>
+                        </div>
+                      </div>`;
+
+    //3개까지만 담기
+    if (comparisonBox.length > 3) {
+      comparisonBox.shift(); // 가장 처음에 추가한 상품 삭제
+    }
   });
 });
