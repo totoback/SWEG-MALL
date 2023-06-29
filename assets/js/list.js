@@ -158,31 +158,57 @@ function productView(products) {
 
 productView(product.refrigerator);
 
-
 //비교하기 버튼 기능
-let comparisonBox = [];
+let comparisonWrap = [];
 
 const comparisonSubBtn = document.querySelectorAll(".icon_compare");
-const comparisonItemBox = document.querySelector(".compare_item_area .item_box");
+const comparisonItemBox = document.querySelectorAll(
+  ".compare_item_area .item_box"
+);
+const comparisonClose = document.querySelector(".close_compare_box");
 
 comparisonSubBtn.forEach(function (btn, index) {
-  btn.addEventListener("click", function (e) {
-    // comparisonBox.push(product[info])
-    const selectedProduct = product.refrigerator[index]
-    console.log(selectedProduct)
+  btn.addEventListener("click", function () {
+    const selectedProduct = product.refrigerator[index]; //내가 선택한 제품의 객체정보
+    // console.log(selectedProduct);
 
-    const itemBoxHTML = `<div class="item_box">
-                        <img src=${selectedProduct.img} alt="" />
-                        <div class="item_info">
-                          <div class="item_name">${selectedProduct.name}</div>
-                          <div class="item_model">${selectedProduct.model}</div>
-                          <div class="item_price">${selectedProduct.price}</div>
-                        </div>
-                      </div>`;
+    const itemBoxHTML = `<div class="width-box">
+                            <div class="item_img">
+                              <img src=${selectedProduct.img} alt="" />
+                            </div>
+                            <div class="item_info">
+                              <div class="item_name">${selectedProduct.name}</div>
+                              <div class="item_model">${selectedProduct.model}</div>
+                              <div class="close_compare_box">
+                                <img src="./assets/img/list/icon_compare_box_close.svg" alt="close">
+                              </div>
+                            </div>
+                          </div>`;
+    //냉장고의 데이터 값을 html안에 담아준 후 itemBoxHTML라는 변수로 저장
 
-    //3개까지만 담기
-    if (comparisonBox.length > 3) {
-      comparisonBox.shift(); // 가장 처음에 추가한 상품 삭제
+    comparisonWrap.push(itemBoxHTML);
+    //빈배열에 itemBoxHTML 추가까지 완료
+
+    // console.log(comparisonWrap);
+    //잘 추가되었는지 확인
+
+    //item_box안에 하나씩 itemBoxHTML를 추가하는 작업
+    comparisonItemBox.forEach(function (itemBox, index) {
+      //comparisonItemBox의 div와 index 값을 받아온다.
+      // console.log(itemBox); //".compare_item_area .item_box"를 뜻함
+      // console.log(index);//itemBox의 요소 0,1,2
+      if (index < comparisonWrap.length) {
+        //comparisonWrap 배열의 길이가 comparisonItemBox 요소의 개수보다 크다면 즉 일치한다면
+        itemBox.innerHTML = comparisonWrap[index];
+        //itemBox 안에 html을 comparisonWrap 요소를 담아줌
+      } else {
+        itemBox.innerText = "선택된 상품이 없습니다.";
+      }
+    });
+
+    // comparisonWrap안에 3개만 담기
+    if (comparisonWrap.length > 3) {
+      comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
     }
   });
 });
