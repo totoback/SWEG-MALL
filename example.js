@@ -69,7 +69,7 @@ const addComparion = (info) => {
   //   if(item == info) return item;
   // }))
   
-  //여기 추가 한 후에 comparisonBox에 대한 로직이 추가 되어야 함
+  // 여기 추가 한 후에 comparisonBox에 대한 로직이 추가 되어야 함
   if(comparisonBox.length > 3){ // 추가 한 후에 length의 길이가 3보다 크다면 
     comparisonBox.shift(); // 가장 처음에 추가한 상품 삭제
   }
@@ -90,4 +90,4 @@ addComparion(buttonName); // 냉장고 추가
 addComparion("toast");  // 토스트 추가 
 addComparion("heater"); // 히터 추가
 addComparion("heater"); // 히터 추가 
-console.log(comparisonBox); // 출력해보면 로직 잘 반영되어서 토스트, 히터, 히터 순으로 들어가 있음
+console.log(comparisonBox); // 출력해보면 로직 잘 반영되어서 냉장고, 토스트, 히터, 히터 순으로 들어가 있음 (마지막 히터 들어갈 때 냉장고 삭제)
