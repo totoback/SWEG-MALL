@@ -169,9 +169,9 @@ const comparisonClose = document.querySelector(".close_compare_box");
 
 comparisonSubBtn.forEach(function (btn, index) {
   btn.addEventListener("click", function () {
-    const selectedProduct = product.refrigerator[index]; //내가 선택한 제품의 객체정보
-    // console.log(selectedProduct);
-
+    const selectedProduct = product.refrigerator[index];
+    //내가 선택한 제품의 객체정보
+  
     const itemBoxHTML = `<div class="width-box">
                             <div class="item_img">
                               <img src=${selectedProduct.img} alt="" />
@@ -184,13 +184,16 @@ comparisonSubBtn.forEach(function (btn, index) {
                               </div>
                             </div>
                           </div>`;
-    //냉장고의 데이터 값을 html안에 담아준 후 itemBoxHTML라는 변수로 저장
+    //html 안에 selectedProduct에 해당하는 키값 넣어주고 itemBoxHTML변수로 담아줌
 
-    comparisonWrap.push(itemBoxHTML);
-    //빈배열에 itemBoxHTML 추가까지 완료
-
-    // console.log(comparisonWrap);
-    //잘 추가되었는지 확인
+    //중복제거
+    const isDuplicate = comparisonWrap.includes(itemBoxHTML);
+    // comparisonWrap 배열에 itemBoxHTML이 있는지 체크
+    if (!isDuplicate) {
+      //isDuplicate 변수가 중복되지 않은 경우 
+      comparisonWrap.push(itemBoxHTML);
+      //comparisonWrap배열에 itemBoxHTMl추가
+    }
 
     //item_box안에 하나씩 itemBoxHTML를 추가하는 작업
     comparisonItemBox.forEach(function (itemBox, index) {
@@ -205,7 +208,6 @@ comparisonSubBtn.forEach(function (btn, index) {
         itemBox.innerText = "선택된 상품이 없습니다.";
       }
     });
-
     // comparisonWrap안에 3개만 담기
     if (comparisonWrap.length > 3) {
       comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
