@@ -165,13 +165,13 @@ const comparisonSubBtn = document.querySelectorAll(".icon_compare");
 const comparisonItemBox = document.querySelectorAll(
   ".compare_item_area .item_box"
 );
-const comparisonClose = document.querySelector(".close_compare_box");
+const itemCount = document.querySelector(".compare_count");
 
 comparisonSubBtn.forEach(function (btn, index) {
   btn.addEventListener("click", function () {
     const selectedProduct = product.refrigerator[index];
     //내가 선택한 제품의 객체정보
-  
+
     const itemBoxHTML = `<div class="width-box">
                             <div class="item_img">
                               <img src=${selectedProduct.img} alt="" />
@@ -190,9 +190,13 @@ comparisonSubBtn.forEach(function (btn, index) {
     const isDuplicate = comparisonWrap.includes(itemBoxHTML);
     // comparisonWrap 배열에 itemBoxHTML이 있는지 체크
     if (!isDuplicate) {
-      //isDuplicate 변수가 중복되지 않은 경우 
+      //isDuplicate 변수가 중복되지 않은 경우
       comparisonWrap.push(itemBoxHTML);
       //comparisonWrap배열에 itemBoxHTMl추가
+      if (comparisonWrap.length < 4) {
+        itemCount.textContent++;
+        // itemCount 값을 1 증가시킴
+      }
     }
 
     //item_box안에 하나씩 itemBoxHTML를 추가하는 작업
@@ -208,6 +212,22 @@ comparisonSubBtn.forEach(function (btn, index) {
         itemBox.innerText = "선택된 상품이 없습니다.";
       }
     });
+
+    // 삭제기능
+    const comparisonClose = document.querySelectorAll(".close_compare_box");
+
+    comparisonClose.forEach(function (closeBtn, index) {
+      //comparisonClose 반복되고 있는 요소의 인덱스를 매게변수로 받아옴
+      closeBtn.addEventListener("click", function (e) {
+        comparisonWrap.splice(index, 1);
+        //comparisonWrap와 comparisonClose가 동일한 인덱스를 가지면 삭제
+        comparisonItemBox[index].innerHTML = "선택된 상품이 없습니다.";
+        // comparisonItemBox의 배열의 Index와 comparisonClose 같은경우 내용 변경
+        itemCount.textContent--;
+        //클릭 될 때 마다 itemCount 숫자 감소
+      });
+    });
+
     // comparisonWrap안에 3개만 담기
     if (comparisonWrap.length > 3) {
       comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
