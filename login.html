@@ -121,16 +121,16 @@
             <span class="material-symbols-outlined">
               person
               </span>
-            <input type="text" placeholder="아이디 입력" class="form_text">
+            <input type="text" placeholder="아이디 입력" class="form_text" name="user_id" id="user_id">
           </div>
           <div class="login_input">
             <span class="material-symbols-outlined">
               lock_open
               </span>
-            <input type="text" placeholder="비밀번호 입력" class="form_text">
+            <input type="text" placeholder="비밀번호 입력" class="form_text" name="user_pw" id="user_pw">
           </div>
           <div class="login_button">
-            <a href="#none">로그인</a>
+            <a href="#none" onclick=loginUser()>로그인</a>
           </div>
           <div class="login_form_func">
             <div class="login_form_func_save">
@@ -153,13 +153,13 @@
           <div class="btn_area">
             <span>No SWEG USER ?</span>
             <div class="join_button">
-              <a href="#">회원가입</a>
+              <a href="/join.html">회원가입</a>
             </div>
           </div>
           <div class="btn_area">
             <span>No SWEG USER ?</span>
             <div class="join_button">
-              <a href="#">회원가입</a>
+              <a href="/join.html">회원가입</a>
             </div>
           </div>
         </div>
@@ -188,3 +188,25 @@
   </div>
 </body>
 </html>
+
+<script>
+  const user_id = document.getElementById('user_id');
+  const user_pw = document.getElementById('user_pw');
+
+  async function loginUser() {
+    const res = await fetch(`http://localhost:4000/user/login`, { 
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: user_id.value,
+        user_pw: user_pw.value,
+      }),
+    });
+    if(res===200){
+      console.log(res);
+      location.reload();
+    } 
+  }
+</script>
