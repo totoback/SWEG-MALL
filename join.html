@@ -111,6 +111,7 @@
           회원가입
         </div>
       </div>
+      <form id="formData" method="post" action="#">
       <!-- 추후 form으로 감싸야 하는 부분 -->
       <div class="join_form_area">
         <div class="join_form_title_area">
@@ -194,7 +195,7 @@
                 <span>아이디</span>
               </div>
               <div class="form_content">
-                <input type="text" placeholder="아이디를 입력해주세요" class="form_text">
+                <input type="text" placeholder="아이디를 입력해주세요" class="form_text" name="user_id" id="user_id">
               </div>
             </div>
             <div class="form_row">
@@ -202,7 +203,7 @@
                 <span>비밀번호</span>
               </div>
               <div class="form_content">
-                <input type="text" placeholder="비밀번호를 입력해주세요" class="form_text">
+                <input type="text" placeholder="비밀번호를 입력해주세요" class="form_text" name="user_pw" id="user_pw">
               </div>
             </div>
             <div class="form_row">
@@ -241,10 +242,11 @@
         </div>
       </div>
       <!-- 추후 form으로 감싸야 하는 부분 -->
+      </form>
       <div class="btn_area">
         <div class="btn_wrap">
           <div class="btn_set">
-            <a href="#" class="btn_basic">회원가입</a>
+            <a href="#" class="btn_basic" onclick=signUpUser()>회원가입</a>
             <a href="#" class="btn_basic">취소</a>
           </div>
         </div>
@@ -256,3 +258,26 @@
   
 </body>
 </html>
+
+<script>
+  // const formData = document.getElementById('formData');
+  const user_id = document.getElementById('user_id');
+  const user_pw = document.getElementById('user_pw');
+  console.log(user_id);
+  async function signUpUser() {
+    const res = await fetch(`http://localhost:4000/user/signup`, { 
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: user_id.value,
+        user_pw: user_pw.value,
+      }),
+    });
+    if(res===200){
+      console.log(res);
+      location.reload();
+    } 
+  }
+</script>
