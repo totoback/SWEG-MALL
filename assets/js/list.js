@@ -127,7 +127,7 @@ comparisonBtn.addEventListener("click", comparison);
 
 function productView(products) {
   let productViewItem = products.map(function (product) {
-    return `<div class="item product_item">
+    return `<div class="item product_item" data-color="${product.color}">
     <div class="image_area">
       
       <a href="#">
@@ -223,8 +223,14 @@ comparisonSubBtn.forEach(function (btn, index) {
         //comparisonWrap와 comparisonClose가 동일한 인덱스를 가지면 삭제
         comparisonItemBox[index].innerHTML = "선택된 상품이 없습니다.";
         // comparisonItemBox의 배열의 Index와 comparisonClose 같은경우 내용 변경
-        itemCount.textContent--;
-        //클릭 될 때 마다 itemCount 숫자 감소
+        if (itemCount.textContent > 1) {
+          // 1보다 큰 경우에는 1을 감소
+          itemCount.textContent--;
+          //클릭 될 때 마다 itemCount 숫자 감소
+        } else {
+          itemCount.textContent = "0";
+          // 1 이하인 경우에는 0으로, 항상 0으로 유지
+        }
       });
     });
 
@@ -232,5 +238,29 @@ comparisonSubBtn.forEach(function (btn, index) {
     if (comparisonWrap.length > 3) {
       comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
     }
+  });
+});
+
+const colorBtns = document.querySelectorAll(".color_chip_icon");
+
+// 선택한 컬러를 저장할 배열
+const selectedColors = [];
+
+// color_chip_icon에 클릭 이벤트 리스너 추가
+colorBtns.forEach(function (colorBtn) {
+  colorBtn.addEventListener("click", function (e) {
+    const clickedColor = e.target.dataset.colorname;
+    //colorBtns의 dataset.colorname속성을 clickedColor 변수에 저장
+    // 제품 리스트 필터링 함수
+    const productItems = document.querySelectorAll(".product_item");
+    productItems.forEach(function (item) {
+      const itemColor = item.dataset.color;
+      if (itemColor === clickedColor) {
+        //컬러버튼을 클릭했을때 컬러랑 item컬러랑 일치할경우
+        item.style.display = "inline-block";
+      } else {
+        item.style.display = "none";
+      }
+    });
   });
 });
