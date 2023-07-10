@@ -195,7 +195,8 @@
                 <span>아이디</span>
               </div>
               <div class="form_content">
-                <input type="text" placeholder="아이디를 입력해주세요" class="form_text" name="user_id" id="user_id">
+                <input type="text" placeholder="아이디를 입력해주세요" class="form_text_id" name="user_id" id="user_id">
+                <a class="btn_basic" id="idDuplicateCheckBtn" onclick=idDuplicateCheck()>중복 확인</a>
               </div>
             </div>
             <div class="form_row">
@@ -203,7 +204,7 @@
                 <span>비밀번호</span>
               </div>
               <div class="form_content">
-                <input type="text" placeholder="비밀번호를 입력해주세요" class="form_text" name="user_pw" id="user_pw">
+                <input type="password" placeholder="비밀번호를 입력해주세요" class="form_text" name="user_pw" id="user_pw">
               </div>
             </div>
             <div class="form_row">
@@ -211,7 +212,7 @@
                 <span>비밀번호 확인</span>
               </div>
               <div class="form_content">
-                <input type="text" placeholder="비밀번호를 입력해주세요" class="form_text">
+                <input type="password" placeholder="비밀번호를 입력해주세요" class="form_text">
               </div>
             </div>
             <div class="form_row">
@@ -260,10 +261,40 @@
 </html>
 
 <script>
-  // const formData = document.getElementById('formData');
+  
   const user_id = document.getElementById('user_id');
   const user_pw = document.getElementById('user_pw');
-  console.log(user_id);
+  const idDuplicateCheckBtn = document.getElementById('idDuplicateCheckBtn');
+  // console.log(idDuplicateCheckBtn);
+
+  async function idDuplicateCheck(){
+    if(user_id.value === "") {
+      alert("ID를 입력해주세요");
+      user_id.focus();
+      return;
+    }
+    const res = await fetch(`http://localhost:4000/user/duplicate-check`, {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: user_id.value,
+      }),
+    });
+    if(res.status === 200){
+      alert("중복 없음 확인");
+      idDuplicateCheckBtn.innerText = "확인 완료";
+      idDuplicateCheckBtn.style.color = "red";
+      idDuplicateCheckBtn.
+      user_pw.focus();
+    }else if(res.status === 409){
+      alert("중복 아이디 발견");
+      user_id.focus();
+    }
+    
+  }
+
   async function signUpUser() {
     const res = await fetch(`http://localhost:4000/user/signup`, { 
       method: 'post',
@@ -275,8 +306,11 @@
         user_pw: user_pw.value,
       }),
     });
-    if(res===200){
-      console.log(res);
+    if(res.status===200){
+      alert("회원가입 완료");
+      location.reload();
+    }else if(res.status===409){
+      alert("이미 존재하는 아이디입니다.");
       location.reload();
     } 
   }

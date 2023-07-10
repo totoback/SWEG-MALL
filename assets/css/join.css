@@ -184,6 +184,13 @@ a {
   width: calc(100% - 140px);
   min-height: 40px;
 }
+.wrap .contents_area .join_form_area .form_area .form_wrap .form_row .form_content .form_text_id {
+  width: 80%;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+}
 .wrap .contents_area .join_form_area .form_area .form_wrap .form_row .form_content .form_text {
   width: 100%;
   height: 40px;
