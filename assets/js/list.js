@@ -242,21 +242,39 @@ comparisonSubBtn.forEach(function (btn, index) {
 });
 
 const colorBtns = document.querySelectorAll(".color_chip_icon");
-
-// 선택한 컬러를 저장할 배열
-const selectedColors = [];
+const productItems = document.querySelectorAll(".product_item");
 
 // color_chip_icon에 클릭 이벤트 리스너 추가
 colorBtns.forEach(function (colorBtn) {
   colorBtn.addEventListener("click", function (e) {
     const clickedColor = e.target.dataset.colorname;
+    console.log(clickedColor)
     //colorBtns의 dataset.colorname속성을 clickedColor 변수에 저장
-    // 제품 리스트 필터링 함수
-    const productItems = document.querySelectorAll(".product_item");
     productItems.forEach(function (item) {
       const itemColor = item.dataset.color;
+      console.log(itemColor)
       if (itemColor === clickedColor) {
         //컬러버튼을 클릭했을때 컬러랑 item컬러랑 일치할경우
+        item.style.display = "inline-block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
+});
+
+
+const imgBtns = document.querySelectorAll(".graph_link");
+const imgs = document.querySelectorAll(".graph_img");
+
+imgBtns.forEach(function (imgBtn) {
+  imgBtn.addEventListener("click", function (e) {
+    const clickedLink = e.target.dataset.name;
+    console.log(e.target);
+
+    productItems.forEach(function (item) {
+      const itemImg = item.dataset.name;
+      if (clickedLink === itemImg) {
         item.style.display = "inline-block";
       } else {
         item.style.display = "none";
