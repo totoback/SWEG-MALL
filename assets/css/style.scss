@@ -506,7 +506,7 @@ a {
               top: 15px;
               right: 15px;
               cursor: pointer;
-              img{
+              img {
                 width: 10px;
                 transition: 0.5s;
               }
@@ -675,6 +675,113 @@ a {
           padding-right: 30px;
           font-size: 16px;
           color: #000000;
+        }
+      }
+    }
+  }
+}
+
+//compare
+.list_compare_wrap {
+  background-color: #f7f7f7;
+  padding: 60px 0;
+  .compare_top_wrap {
+    display: flex;
+    .title_area {
+      margin-right: 65px;
+      margin-top: 60px;
+      .title {
+        font-size: 30px;
+      }
+      .info {
+        margin-top: 10px;
+        font-size: 15px;
+      }
+    }
+    .item_area {
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 203px);
+      select {
+        width: 100%;
+        height: 45px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #cccccc;
+        font-size: 16px;
+        color: #000000;
+      }
+      .item {
+        width: 32%;
+        .pro_box {
+          height: 300px;
+          padding: 35px;
+          margin-top: 30px;
+          background-color: #fff;
+          .info_wrap {
+            margin-top: 20px;
+            .pro_name {
+              font-size: 17px;
+              margin-bottom: 4px;
+            }
+            .pro_model_name {
+              color: #9a9a9a;
+              font-size: 14px;
+            }
+            .pro_price {
+              font-size: 15px;
+              margin-top: 10px;
+            }
+          }
+          .btn_set {
+            margin-top: 20px;
+            a {
+              display: block;
+              padding: 10px 70px;
+              border: 1px solid #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.compare_data_area {
+  .depth_wrap {
+    margin: 50px 0;
+    .depth1 {
+      display: flex;
+      justify-content: flex-start;
+      background-color: #fbfbfb;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+    .depth2 {
+      .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          width: 203px;
+          border-bottom: 1px solid #d6d6d6;
+          padding: 20px;
+          margin-right: 20px;
+        }
+        .contents_set {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: calc(100% - 203px);
+          .contents {
+            width: 32%;
+            font-size: 13px;
+            color: #555;
+            text-align: center;
+            border-bottom: 1px solid #d6d6d6;
+            padding: 20px 0;
+          }
         }
       }
     }
