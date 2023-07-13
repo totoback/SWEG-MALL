@@ -127,7 +127,7 @@ comparisonBtn.addEventListener("click", comparison);
 
 function productView(products) {
   let productViewItem = products.map(function (product) {
-    return `<div class="item product_item" data-color="${product.color}">
+    return `<div class="item product_item" data-color="${product.color}" data-name="${product.name}">
     <div class="image_area">
       
       <a href="#">
@@ -244,7 +244,7 @@ comparisonSubBtn.forEach(function (btn, index) {
 const colorBtns = document.querySelectorAll(".color_chip_icon");
 const productItems = document.querySelectorAll(".product_item");
 
-// color_chip_icon에 클릭 이벤트 리스너 추가
+// 컬러 필터 기능
 colorBtns.forEach(function (colorBtn) {
   colorBtn.addEventListener("click", function (e) {
     const clickedColor = e.target.dataset.colorname;
@@ -264,13 +264,14 @@ colorBtns.forEach(function (colorBtn) {
 });
 
 
+//사이즈 필터기능
 const imgBtns = document.querySelectorAll(".graph_link");
 const imgs = document.querySelectorAll(".graph_img");
 
 imgBtns.forEach(function (imgBtn) {
   imgBtn.addEventListener("click", function (e) {
-    const clickedLink = e.target.dataset.name;
-    console.log(e.target);
+    const clickedLink = e.target.parentNode.parentNode.dataset.name;
+    console.log(clickedLink);
 
     productItems.forEach(function (item) {
       const itemImg = item.dataset.name;
