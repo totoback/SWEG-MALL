@@ -127,7 +127,7 @@
             <span class="material-symbols-outlined">
               lock_open
               </span>
-            <input type="text" placeholder="비밀번호 입력" class="form_text" name="user_pw" id="user_pw">
+            <input type="password" placeholder="비밀번호 입력" class="form_text" name="user_pw" id="user_pw">
           </div>
           <div class="login_button">
             <a href="#none" onclick=loginUser()>로그인</a>
@@ -194,6 +194,16 @@
   const user_pw = document.getElementById('user_pw');
 
   async function loginUser() {
+    if(user_id.value === ""){
+      alert("아이디를 입력해주세요");
+      user_id.focus();
+      return;
+    }else if(user_pw.value === ""){
+      alert("비밀번호를 입력해주세요");
+      user_pw.focus();
+      return;
+    }
+
     const res = await fetch(`http://localhost:4000/user/login`, { 
       method: 'post',
       headers: {
@@ -204,9 +214,18 @@
         user_pw: user_pw.value,
       }),
     });
-    if(res===200){
-      console.log(res);
+    if(res.status===200){
+      alert("로그인 성공");
+      location.href = "/index.html"
+    }else if(res.status === 400){ // id X
+      alert("회원정보가 존재하지 않습니다."); // id !== db ID || pw ! == db PW
       location.reload();
-    } 
+    }else if(res.status === 401){
+      alert("회원정보를 확인해주세요.");
+      location.reload();
+    }else if(res.staus === 500){
+      alert("알 수 없는 오류");
+      location.reload();
+    }
   }
 </script>
