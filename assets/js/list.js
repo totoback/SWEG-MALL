@@ -160,6 +160,7 @@ productView(product.refrigerator);
 
 //비교하기 버튼 기능
 let comparisonWrap = [];
+let selectedItems = [];
 
 const comparisonSubBtn = document.querySelectorAll(".icon_compare");
 const comparisonItemBox = document.querySelectorAll(
@@ -238,6 +239,16 @@ comparisonSubBtn.forEach(function (btn, index) {
     if (comparisonWrap.length > 3) {
       comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
     }
+
+    //로컬스토리지 저장
+    selectedItems.push(selectedProduct);
+    //비교하기버튼을 클릭하면 로컬스토리지배열에 selectedProduct를 추가한다.
+    if (selectedItems.length > 1 || selectedItems.length > 2) {
+      //selectedItems배열 안에 2개이상 이거나 3개까지만 담기
+      localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+      //문자열로 변환하여 로컬스토리지에 저장
+      console.log(selectedItems);
+    }
   });
 });
 
@@ -248,11 +259,11 @@ const productItems = document.querySelectorAll(".product_item");
 colorBtns.forEach(function (colorBtn) {
   colorBtn.addEventListener("click", function (e) {
     const clickedColor = e.target.dataset.colorname;
-    console.log(clickedColor)
+    console.log(clickedColor);
     //colorBtns의 dataset.colorname속성을 clickedColor 변수에 저장
     productItems.forEach(function (item) {
       const itemColor = item.dataset.color;
-      console.log(itemColor)
+      console.log(itemColor);
       if (itemColor === clickedColor) {
         //컬러버튼을 클릭했을때 컬러랑 item컬러랑 일치할경우
         item.style.display = "inline-block";
@@ -262,7 +273,6 @@ colorBtns.forEach(function (colorBtn) {
     });
   });
 });
-
 
 //사이즈 필터기능
 const imgBtns = document.querySelectorAll(".graph_link");
