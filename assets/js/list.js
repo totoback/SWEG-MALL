@@ -241,10 +241,14 @@ comparisonSubBtn.forEach(function (btn, index) {
     }
 
     //로컬스토리지 저장
-    selectedItems.push(selectedProduct);
-    //비교하기버튼을 클릭하면 로컬스토리지배열에 selectedProduct를 추가한다.
-    if (selectedItems.length > 1 || selectedItems.length > 2) {
-      //selectedItems배열 안에 2개이상 이거나 3개까지만 담기
+    const DuplicateCheck = selectedItems.includes(selectedProduct);
+    if (!DuplicateCheck) {
+      //DuplicateCheck 변수가 중복되지 않은 경우
+      selectedItems.push(selectedProduct);
+      //비교하기버튼을 클릭하면 로컬스토리지배열에 selectedProduct를 추가한다.
+    }
+    if (selectedItems.length <= 3) {
+      //selectedItems배열 안에 3개까지만 담기
       localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
       //문자열로 변환하여 로컬스토리지에 저장
       console.log(selectedItems);
