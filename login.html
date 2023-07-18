@@ -215,8 +215,13 @@
       }),
     });
     if(res.status===200){
-      alert("로그인 성공");
-      location.href = "/index.html"
+      const userData = async () => {
+        const data = await res.json();
+        console.log(data);
+        alert("로그인 성공");
+        location.href = "/index.html"
+      }
+      userData();
     }else if(res.status === 400){ // id X
       alert("회원정보가 존재하지 않습니다."); // id !== db ID || pw ! == db PW
       location.reload();

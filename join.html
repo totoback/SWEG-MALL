@@ -477,7 +477,8 @@
     });
     if(res.status===200){
       alert("회원가입 완료");
-      location.href = "/login.html"
+      location.href = "/join_complete.html"
+      
     }else if(res.status===500){
       alert("오류가 발생하였습니다.");
       location.reload();
