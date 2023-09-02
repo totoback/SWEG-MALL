@@ -219,7 +219,7 @@
         const data = await res.json();
         console.log(data);
         alert("로그인 성공");
-        location.href = "/index.html"
+        location.href = "/index.html" + "?" + data.user_id;
       }
       userData();
     }else if(res.status === 400){ // id X
